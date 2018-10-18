@@ -36,12 +36,27 @@
       function parse_players() {
         var x = document.getElementById("players");
         var text = "";
-        var i;
+        var regList = x.elements[0].value.split('\n');
         var players = shuffle(x.elements[0].value.split('\n'));
-        for (i = 1; i < players.length; i++) {
-          text += players[i - 1] + " -> " + players[i]+ "<br>";
+
+        var matchings = {};
+
+        for (var j = 1; j < players.length; j++) {
+          matchings[players[j - 1]] = players[j];
         }
-        text += players[players.length - 1] + " -> " + players[0]+ "<br>";
+        matchings[players[players.length - 1]] = players[0];
+        console.log(matchings);
+
+        for (var h = 0; h < players.length; h++) {
+          text += matchings[regList[h]] + "<br>";
+        }
+
+        text += "========================" + "<br>";
+
+        for (i = 1; i < players.length; i++) {
+          text += players[i - 1] + " » " + players[i]+ "<br>";
+        }
+        text += players[players.length - 1] + " » " + players[0]+ "<br>";
         
         document.getElementById("results").innerHTML = text;
       }
