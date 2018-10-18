@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h1>Assassins Target Generator</h1>
+    <p>Input a list of players in the game in the following format:</p>
+    
+    Player 1
+    <br>Player 2
+    <br>Player 3
+    <br>Player 4
+    <br><br>
+
+
+    <form id="players">
+      <textarea name="message" rows="10" cols="30"></textarea>
+      <br>
+    </form>
+
+    <button onclick="parse_players()">Assign Targets</button>
+
+    <p id="results"></p>
+
+
+    <script>
+      function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+      }
+      function parse_players() {
+        var x = document.getElementById("players");
+        var text = "";
+        var i;
+        var players = shuffle(x.elements[0].value.split('\n'));
+        for (i = 1; i < players.length; i++) {
+          text += players[i - 1] + " -> " + players[i]+ "<br>";
+        }
+        text += players[players.length - 1] + " -> " + players[0]+ "<br>";
+        
+        document.getElementById("results").innerHTML = text;
+      }
+    </script>
+  </body>
+</html>
+
