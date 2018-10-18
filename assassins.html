@@ -37,7 +37,7 @@
         var x = document.getElementById("players");
         var text = "";
         var regList = x.elements[0].value.split('\n');
-        var players = shuffle(x.elements[0].value.split('\n'));
+        var players = shuffle(x.elements[0].value.split('\n')).filter(word => word != '');
 
         var matchings = {};
 
