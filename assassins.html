@@ -36,8 +36,8 @@
       function parse_players() {
         var x = document.getElementById("players");
         var text = "";
-        var regList = x.elements[0].value.split(/[\n ]/).filter(word => word != '' & word != ' ');
-        var players = shuffle(x.elements[0].value.split(/[\n ]/)).filter(word => word != '' & word != ' ');
+        var regList = x.elements[0].value.split(/[\n]/).filter(word => word != '' & word != ' ');
+        var players = shuffle(x.elements[0].value.split(/[\n]/)).filter(word => word != '' & word != ' ');
 
         var matchings = {};
 
